@@ -20,8 +20,9 @@ module.exports.router = (req, res, next = ()=>{}) => {
 
   res.writeHead(200, headers);
 
-  if (req.method === 'GET') {
-    let dir = options[Math.floor(Math.random() * 4)];
+  if (req.method === 'GET' && messageQueue.length > 0) {
+    console.log(messageQueue);
+    let dir = messageQueue.dequeue();
     res.write(dir);
   }
 
