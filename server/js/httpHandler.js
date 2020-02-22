@@ -20,13 +20,13 @@ module.exports.router = (req, res, next = ()=>{}) => {
 
   res.writeHead(200, headers);
 
-  if (req.method === 'GET' && messageQueue.length > 0) {
-    console.log(messageQueue);
+  if (req.method === 'GET') {
     let dir = messageQueue.dequeue();
-    res.write(dir);
+    res.end(dir);
+  } else {
+    res.end();
   }
 
-  res.end();
   next();
   // invoke next() at the end of a request to help with testing!
 };

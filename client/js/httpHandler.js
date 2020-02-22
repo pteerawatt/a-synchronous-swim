@@ -12,7 +12,7 @@
       url: serverUrl,
       method: "GET",
       success: function (response) {
-          SwimTeam.move(response);
+        SwimTeam.move(response);
       },
       error: function (xhr, status) {
           console.log("error");
