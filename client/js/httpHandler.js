@@ -5,6 +5,22 @@
   //
   // TODO: build the swim command fetcher here
   //
+  console.log('running');
+
+  var randomThing = function() {
+    $.ajax({
+      url: serverUrl,
+      method: "GET",
+      success: function (response) {
+          SwimTeam.move(response);
+      },
+      error: function (xhr, status) {
+          console.log("error");
+      }
+    });
+  }
+
+  setInterval(randomThing, 500);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
